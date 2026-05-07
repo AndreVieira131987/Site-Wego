@@ -847,9 +847,27 @@ function App() {
         </motion.div>
       </section>
 
-      {/* FOOTER BASICO PARA FINALIZAR A PAGINA */}
-      <footer className="relative py-8 bg-black z-10 border-t border-light/5 text-center">
-         <p className="font-sans text-xs text-muted">© {new Date().getFullYear()} We.Go Smart Business. Todos os direitos reservados.</p>
+      {/* FOOTER */}
+      <footer className="relative py-12 bg-[#0a0d14] z-10 border-t border-light/5 text-center">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col items-center justify-center gap-6">
+          <a href="https://www.instagram.com/wegosmartbusiness/" target="_blank" rel="noopener noreferrer" className="p-3 bg-dark border border-light/10 rounded-full text-light hover:text-primary hover:border-primary transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          
+          <div className="text-light/70 font-sans text-sm leading-relaxed mb-4">
+            <p className="font-semibold text-offwhite mb-1">Wego - Smart Business Wego Desenvolvimento de Tecnologia LTDA</p>
+            <p>Avenida Visconde de Guarapuava 2764 Sala 608 Andar 06 Cond Mid Curitiba Cd Bloco Torre Work</p>
+            <p>Centro - Curitiba PR - 80010-100</p>
+          </div>
+          
+          <div className="flex items-center gap-4 text-xs text-muted/60 mb-2">
+            <a href="/termos.html" className="hover:text-primary transition-colors">Termos de Uso</a>
+            <span>|</span>
+            <a href="/privacidade.html" className="hover:text-primary transition-colors">Política de Privacidade</a>
+          </div>
+
+          <p className="font-sans text-xs text-muted/50">© {new Date().getFullYear()} We.Go Smart Business. Todos os direitos reservados.</p>
+        </div>
       </footer>
 
     </div>
