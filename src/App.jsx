@@ -6,6 +6,7 @@ import {
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import AnimatedCounter from "./components/AnimatedCounter";
 import GlowCard from "./components/GlowCard";
+import CookieBanner from "./components/CookieBanner";
 import logoCompleta from "./assets/completa_h_1.png";
 import videoInsights from "./assets/video_of_insights_optimized.mp4";
 import bgSolucoes from "./assets/BI_Data_Analytics.jpeg";
@@ -168,6 +169,9 @@ function App() {
       {/* Fixed UI Backgrounds */}
       <div className="fixed inset-0 z-0 technical-grid pointer-events-none opacity-40"></div>
       
+      {/* Cookie Consent Banner */}
+      <CookieBanner />
+
       {/* Navigation */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full px-6 md:px-12 flex justify-between items-center transition-all duration-300 ${
