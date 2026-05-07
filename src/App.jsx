@@ -21,6 +21,51 @@ function App() {
   const { scrollYProgress } = useScroll();
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
+  // =========================================================================
+  // LÓGICA DE TRACKING UTM (Silenciosa)
+  // =========================================================================
+  useEffect(() => {
+    const trackUTMs = async () => {
+      try {
+        // Pega os parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        const utm_source = urlParams.get('utm_source');
+        const utm_medium = urlParams.get('utm_medium');
+        const utm_campaign = urlParams.get('utm_campaign');
+        
+        // Só dispara se encontrar pelo menos um dos parâmetros (geralmente utm_source)
+        if (utm_source || utm_medium || utm_campaign) {
+          const payload = {
+            utm_source: utm_source || '',
+            utm_medium: utm_medium || '',
+            utm_campaign: utm_campaign || '',
+            page_url: window.location.href
+          };
+
+          // Faz o disparo assíncrono para o arquivo tracking.php na hospedagem
+          // O usuário não percebe atraso no carregamento
+          await fetch('/tracking.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+          
+          console.log("UTMs rastreadas com sucesso.");
+        }
+      } catch (error) {
+        // Erro silencioso - não quebra o site se a API falhar
+        console.error("Erro interno ao rastrear UTMs:", error);
+      }
+    };
+
+    trackUTMs();
+  }, []);
+  // =========================================================================
+
+
   // Animation refs
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
